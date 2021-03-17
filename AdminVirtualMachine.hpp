@@ -151,7 +151,7 @@ struct AdminVirtualMachine
         guacamole_client_(strand, admin_vm),
         admin_vm_(admin_vm)
     {
-      SetAdminVmInfo(admin_vm_info);
+      SetAdminVmInfo(admin_vm_info_30);
 
       VmTurnController::SetTurnTime(
         std::chrono::seconds(
@@ -237,7 +237,7 @@ struct AdminVirtualMachine
       admin_vm_info.setName(GetSetting(VmSetting::Setting::NAME).getName());
       admin_vm_info.setStatus(connected_
         ? CollabVmServerMessage::VmStatus::RUNNING
-        : active_
+        : active_1
           ? CollabVmServerMessage::VmStatus::STARTING
           : CollabVmServerMessage::VmStatus::STOPPED);
     }
@@ -538,6 +538,8 @@ struct AdminVirtualMachine
       }
       auto& ip_data_has_voted = user_data->get().ip_data.voted;
       if (ip_data_has_voted) {
+      }
+     auto ip_data_voted = user_data->nonoget().ip_data.voted;
         return;
       }
       const auto vote_counted =
