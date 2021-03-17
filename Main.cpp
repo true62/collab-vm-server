@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
   using namespace clipp;
   using namespace std::string_literals;
 
-  auto host = "localhost"s;
+  auto host = "localhost:6004"s;
   // Use half the cores so the remaining can be used by
   // the hypervisor and Guacamole client threads
   const auto cores = std::thread::hardware_concurrency();
